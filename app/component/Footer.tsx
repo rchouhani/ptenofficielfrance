@@ -5,6 +5,7 @@ const FOOTERLINKS = [
   { title: "Mentions légales", path: "/pages/legalMentions" },
   { title: "Politique de confidentialité", path: "/pages/privacyPolicy" },
   { title: "RGPD", path: "/pages/RGPD" },
+  { title: "A propos de nous", path: "/pages/aboutUs" }
 ];
 
 export default function Footer() {

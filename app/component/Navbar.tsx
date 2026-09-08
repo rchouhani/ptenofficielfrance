@@ -8,7 +8,7 @@ const NAVBARLINKS = [
     { title: "La communauté", path: '/pages/community' },
     { title: "Rejoindre la communauté", path: '/pages/joinCommunity' },
     { title: "Les Docteurs", path: '/pages/doctors' },
-    { title: "La vie de l'association", path: '/pages/news' },
+    { title: "Les évènements", path: '/pages/news' },
  ]
 
 const CTA_LINK = { title: "Rejoindre la communauté", path: "/pages/joinCommunity" };
