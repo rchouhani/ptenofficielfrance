@@ -265,6 +265,78 @@
        "mail": "",
        "lienAPHP": "https://www.aphp.fr/offre-de-soin/medecin/3189317/075/63",
        "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.991275672363!2d2.2727955768609385!3d48.83930510204894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67aa056d68ce9%3A0x45c6bdaee69ac69d!2sH%C3%B4pital%20Europ%C3%A9en%20Georges%20Pompidou%20AP-HP!5e0!3m2!1sfr!2sfr!4v1744749468900!5m2!1sfr!2sfr", 
-    "category": "adult"
+       "category": "adult"
+    },
+    {
+       "nom": "Benusiglio",
+       "prenom": "Patrick",
+       "specialites": "Onco-Généticien",
+       "adresse": "Hopital de la Pitié-Salpêtrière, 47-83 Boulevard de l\"hopital",
+       "codePostal": "75013",
+       "ville": "Paris", 
+       "mail": "patrick.benusiglio@aphp.fr",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5252.215579174039!2d2.360171992493815!3d48.83708262828823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f35bd6ca4f%3A0x721637ba77901d4e!2zSMO0cGl0YWwgZGUgbGEgUGl0acOpIFNhbHDDqnRyacOocmUgLSBBUC1IUA!5e0!3m2!1sfr!2sfr!4v1744748033081!5m2!1sfr!2sfr", 
+       "category": "adult"
+    },
+    {
+       "nom": "Dardenne",
+       "prenom": "Antoine",
+       "specialites": "Oncologue Médicale",
+       "adresse": "Hopital Saint-Antoine, 184 Rue du Faubourg Saint-Antoine",
+       "codePostal": "75012",
+       "ville": "Paris", 
+       "mail": "antoine.dardenne@aphp.fr",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5252.215579174039!2d2.360171992493815!3d48.83708262828823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f35bd6ca4f%3A0x721637ba77901d4e!2zSMO0cGl0YWwgZGUgbGEgUGl0acOpIFNhbHDDqnRyacOocmUgLSBBUC1IUA!5e0!3m2!1sfr!2sfr!4v1744748033081!5m2!1sfr!2sfr", 
+       "category": "adult"
+    },
+    {
+       "nom": "Cohen",
+       "prenom": "Odile",
+       "specialites": "Génétique",
+       "adresse": "Hopital Saint-Louis, 1 Avenue Claude Vellefaux",
+       "codePostal": "75010",
+       "ville": "Paris", 
+       "mail": "odile.cohen-haguenauer@aphp.fr",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "???", 
+       "category": "adult"
+    },
+    {
+       "nom": "Perrin-Sabourin",
+       "prenom": "Laurence",
+       "specialites": "Génétique Médicale",
+       "adresse": "Hopital Robert Debré, 48 Boulevard Servier",
+       "codePostal": "75019",
+       "ville": "Paris", 
+       "mail": "laurence.perrin-sabourin@aphp.fr",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.902085614933!2d2.399711226862695!3d48.87914309924529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66da3541d3fdb%3A0x24822fc4f89f6dbd!2sH%C3%B4pital%20Robert%20Debr%C3%A9%20AP-HP!5e0!3m2!1sfr!2sfr!4v1744747858622!5m2!1sfr!2sfr",
+       "category": "child"
+    },
+    {
+       "nom": "Boccara",
+       "prenom": "Olivia",
+       "specialites": "Dermatologue",
+       "adresse": "49 rue de Trévise",
+       "codePostal": "75009",
+       "ville": "Paris", 
+       "mail": "lydia.slimani@aphp.fr",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "???",
+       "category": "child"
+    },
+    {
+       "nom": "Fraissenon",
+       "prenom": "Antoine",
+       "specialites": "Radiologue Interventionnel",
+       "adresse": "Hospice Civil, 3 Quai des Célestins",
+       "codePostal": "69002",
+       "ville": "Lyon", 
+       "mail": "???",
+       "lienAPHP": "???",
+       "iframeGoogleMaps": "???",
+       "category": "child"
     }
 ]
