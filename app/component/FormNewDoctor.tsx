@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useId, useState } from "react"
 
 export default function FormNewDoctor () {
     const [error, setError] = useState('')
@@ -16,33 +16,75 @@ export default function FormNewDoctor () {
     const [category, setCategory] = useState('')
     const [message, setMessage] = useState('')
 
+    const formId = useId();
+    const fieldId = (name: string) => `${formId}-${name}`;
+
+    const inputClassName = "w-full rounded border border-ink/15 bg-paper px-3 py-2 text-sm text-ink placeholder:text-muted focus:border-accent focus:outline-none";
+    const labelClassName = "mb-1 block text-sm font-medium text-ink"
+
      if (sent) {
     return (
-      <div style={{
-        padding: '28px 24px',
-        background: 'var(--color-muted)',
-        border: '1px solid var(--color-accent-text)',
-        borderRadius: '8px',
-        textAlign: 'center',
-      }}>
-        <div style={{ fontSize: '40px', marginBottom: '14px' }}>✅</div>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: 700, color: 'red', marginBottom: '8px' }}>
+      <div role="status" className="rounded-lg border border-accent/40 bg-ink/5 p-7 text-center">
+        <div className="mb-3 text-4xl">✅</div>
+        <p className="mb-2 font-display text-base font-bold text-ink">
           Message envoyé !
-        </div>
-        <p style={{ fontSize: '13px' }}>
-          Par souci de conformité, nous devons vérifier ce qui est proposé par les adhérents. <strong style={{ color: 'var(--color-accent-text)' }}>{email}</strong>
+        </p>
+        <p className="text-sm text-ink/80">
+          Par souci de conformité, nous devons vérifier ce qui est proposé par les adhérents. <strong className="text-accent-text">{email}</strong>
         </p>
       </div>
     )
   }
 
     return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-      <div>
+      <>
+<div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
+  <h1 className="text-center text-4xl mt-15">Soumission de partenaire médical</h1>
+    <span className="mb-15 mt-5">
+      <p>Ce formulaire sert à partager un professionnel de santé méconnu dans l'annuaire sur le périmètre de la maladie PTEN.
+      Dans un souci de contenu de qualité, nous vérifierons chaque suggestion, une fois validé, vous en serez informé</p>
+    </span>
+</div>
+<form className="mx-auto flex w-full max-w-3xl flex-col gap-5"
+      onSubmit={async (event) => {
+        event.preventDefault();
+        if (!doctorFirstname || !doctorLastname || !specialite || !cityConsultation) {
+          setError("Veuillez remplir tous les champs obligatoires.");
+          return;
+        }
+        setError("");
+        setLoading(true);
+        try {
+          const res = await fetch("/api/formNewDoctor", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              userFirstname,
+              userLastname,
+              doctorFirstname,
+              doctorLastname,
+              cityConsultation,
+              specialite,
+              category,
+              email,
+              message,
+            }),
+          });
+          if (!res.ok) throw new Error();
+          setSent(true);
+        } catch {
+          setError("Une erreur est survenue. Veuillez réessayer ou nous appeler directement.");
+        } finally {
+          setLoading(false);
+        }
+      }}
+>
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label>Votre Prénom</label>
+          <label htmlFor={fieldId("user-firstname")} className={labelClassName}>Votre Prénom</label>
           <input
-            className="h-12"
+            id={fieldId("user-firstname")}
+            className={inputClassName}
             type="text"
             placeholder="Jean"
             value={userFirstname}
@@ -50,9 +92,10 @@ export default function FormNewDoctor () {
           />
         </div>
         <div>
-          <label>Votre Nom</label>
+          <label htmlFor={fieldId("userLastname")} className={labelClassName}>Votre Nom</label>
           <input
-            className="h-12"
+            id={fieldId("usserLastname")}
+            className={inputClassName}
             type="text"
             placeholder="Dupont"
             value={userLastname}
@@ -62,78 +105,104 @@ export default function FormNewDoctor () {
       </div>
 
       <div>
-        <label>E-mail</label>
+        <label htmlFor={fieldId("email")} className={labelClassName}>E-mail</label>
         <input
-          className="h-12"
+          id={fieldId("email")}
+          className={inputClassName}
           type="email"
-          placeholder="jean@société.fr"
+          placeholder="jean@societe.fr"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
-      <div className="form-field">
-        <label>Si vous souhaitez apporter des précisions</label>
+      <div>
+        <label htmlFor={fieldId(message)} className={labelClassName}>Si vous souhaitez apporter des précisions</label>
         <textarea
-          className="h-12"
-          style={{ height: '140px' }}
+          id={fieldId(message)}
+          className={`${inputClassName} min-h-[140px]`}
           placeholder="Décrivez-nou le contexte si vous le souhaitez"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
 
-      <div className="form-field">
-        <label>Le prénom du docteur</label>
-        <textarea
-          className="h-12"
-          // style={{ height: '140px' }}
+    <div className="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label htmlFor={fieldId(doctorFirstname)} className={labelClassName}>Le prénom du docteur</label>
+        <input
+          id={fieldId(doctorFirstname)}
+          className={inputClassName}
+          type="text"
           placeholder="Le prénom du docteur"
           value={doctorFirstname}
           onChange={(e) => setDoctorFirstname(e.target.value)}
+          required
+          aria-label="true"
         />
       </div>
-      <div className="form-field">
-        <label>Le nom du docteur</label>
-        <textarea
-          className="h-12"
-          // style={{ height: '140px' }}
-          placeholder="Le nom du docteur"
-          value={doctorLastname}
-          onChange={(e) => setDoctorLastname(e.target.value)}
-        />
+      <div>
+        <label htmlFor={fieldId(doctorLastname)} className={labelClassName}>Le nom du docteur</label>
+        <input
+            id={fieldId("doctorLastname")}
+            className={inputClassName}
+            type="text"
+            placeholder="Le nom du docteur"
+            value={doctorLastname}
+            onChange={(e) => setDoctorLastname(e.target.value)}
+            required
+            aria-required="true"
+          />
       </div>
+    </div>
 
       <div className="form-field">
-        <label>La spécialité de votre docteur</label>
-        <textarea
-          className="h-12"
-          // style={{ height: '140px' }}
+        <label htmlFor={fieldId("specialite")} className={labelClassName}>
+          Spécialité du docteur <span aria-hidden="true">*</span>
+        </label>
+        <input
+          id={fieldId("specialite")}
+          className={inputClassName}
+          type="text"
           placeholder="Sa spécialité"
           value={specialite}
           onChange={(e) => setSpecialite(e.target.value)}
+          required
+          aria-required="true"
         />
       </div>
-
-      <div className="form-field">
-        <label>Sa ville ou son hôpital</label>
-        <textarea
-          className="h-12"
+    <div className="grid gap-4 sm:grid-cols-2">
+      <div>
+         <label htmlFor={fieldId("ville")} className={labelClassName}>
+          Lieu de soin <span aria-hidden="true">*</span>
+        </label>
+        <input
+          id={fieldId("ville")}
+          className={inputClassName}
+          type="text"
           placeholder="Son lieu de consultation"
           value={cityConsultation}
           onChange={(e) => setCityConsultation(e.target.value)}
+          required
+          aria-required="true"
         />
       </div>
-
-      <div className="form-field">
-        <label>Enfants ou Adultes</label>
-        <textarea
-          className="h-12"
-          placeholder="il s'occupe d'enfant ou d'adulte"
+      <div>
+       <label htmlFor={fieldId("category")} className={labelClassName}>
+          Patientèle suivie
+        </label>
+        <select
+          id={fieldId("category")}
+          className={inputClassName}
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-        />
+        >
+          <option value="">Sélectionner…</option>
+          <option value="child">Enfant</option>
+          <option value="adult">Adulte</option>
+        </select>
       </div>
+    </div>
 
       {error && (
         <p style={{ fontSize: '13px', color: '#f87171', textAlign: 'center' }}>
@@ -142,39 +211,13 @@ export default function FormNewDoctor () {
       )}
 
       <button
-            type="button"
-            className="form-submit"
+            type="submit"
             disabled={loading}
-            onClick={async () => {
-              if (!doctorFirstname || !doctorLastname || !specialite || !cityConsultation){
-              setError('Veuillez remplir tous les champs obligatoires.')
-              return
-            }
-          setError('')
-          setLoading(true)
-          try {
-            const res = await fetch('/api/formNewDoctor', {
-              method: 'POST',
-              headers: { 'content-type': 'application/json' },
-              body: JSON.stringify({ userFirstname, userLastname, category, specialite, cityConsultation, doctorFirstname, doctorLastname, email, message }),
-            })
-            if (!res.ok) throw new Error()
-              setSent(true)
-          } catch {
-            setError('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.')
-          } finally {
-            setLoading (false)
-          }
-         }}
+            className="rounded-sm bg-ink mb-15 px-4 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? 'Envoi en cours...' : 'Envoyer ma proposition →'}
       </button>
-
-      {/* <p className="form-note">
-        Champs * obligatoires · Réponse sous 24h ouvrées<br />
-        Ou appelez directement le{' '}
-        <a href="#">lien de bas de page formulaire</a>
-      </p> */}
-    </div>
+</form>
+</>
   )
 }
