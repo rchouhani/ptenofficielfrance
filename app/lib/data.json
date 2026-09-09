@@ -275,7 +275,7 @@
        "codePostal": "75013",
        "ville": "Paris", 
        "mail": "patrick.benusiglio@aphp.fr",
-       "lienAPHP": "???",
+       "lienAPHP": "https://www.aphp.fr/dr-benusiglio-patrick",
        "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5252.215579174039!2d2.360171992493815!3d48.83708262828823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f35bd6ca4f%3A0x721637ba77901d4e!2zSMO0cGl0YWwgZGUgbGEgUGl0acOpIFNhbHDDqnRyacOocmUgLSBBUC1IUA!5e0!3m2!1sfr!2sfr!4v1744748033081!5m2!1sfr!2sfr", 
        "category": "adult"
     },
@@ -287,7 +287,7 @@
        "codePostal": "75012",
        "ville": "Paris", 
        "mail": "antoine.dardenne@aphp.fr",
-       "lienAPHP": "???",
+       "lienAPHP": "https://www.aphp.fr/dr-dardenne-antoine",
        "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5252.215579174039!2d2.360171992493815!3d48.83708262828823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671f35bd6ca4f%3A0x721637ba77901d4e!2zSMO0cGl0YWwgZGUgbGEgUGl0acOpIFNhbHDDqnRyacOocmUgLSBBUC1IUA!5e0!3m2!1sfr!2sfr!4v1744748033081!5m2!1sfr!2sfr", 
        "category": "adult"
     },
@@ -299,8 +299,8 @@
        "codePostal": "75010",
        "ville": "Paris", 
        "mail": "odile.cohen-haguenauer@aphp.fr",
-       "lienAPHP": "???",
-       "iframeGoogleMaps": "???", 
+       "lienAPHP": "https://www.aphp.fr/dr-cohen-haguenauer-odile",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.2030033933142!2d2.3697699!3d48.873406499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e0a8f0ee44b%3A0xc1ae87590afb9cbe!2sH%C3%B4pital%20Saint-Louis%20AP-HP!5e0!3m2!1sfr!2sfr!4v1788983888607!5m2!1sfr!2sfr", 
        "category": "adult"
     },
     {
@@ -311,7 +311,7 @@
        "codePostal": "75019",
        "ville": "Paris", 
        "mail": "laurence.perrin-sabourin@aphp.fr",
-       "lienAPHP": "???",
+       "lienAPHP": "https://www.aphp.fr/recherche/offres-de-soin?query=laurence%20perrin-sabourin&sort=_score%2CDESC&speciality_search=false",
        "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.902085614933!2d2.399711226862695!3d48.87914309924529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66da3541d3fdb%3A0x24822fc4f89f6dbd!2sH%C3%B4pital%20Robert%20Debr%C3%A9%20AP-HP!5e0!3m2!1sfr!2sfr!4v1744747858622!5m2!1sfr!2sfr",
        "category": "child"
     },
@@ -323,8 +323,8 @@
        "codePostal": "75009",
        "ville": "Paris", 
        "mail": "lydia.slimani@aphp.fr",
-       "lienAPHP": "???",
-       "iframeGoogleMaps": "???",
+       "lienAPHP": "",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.063301190205!2d2.3454569999999997!3d48.8760698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e3ff98ebe1f%3A0xb85ef896e9fb294a!2s49%20Rue%20de%20Tr%C3%A9vise%2C%2075009%20Paris!5e0!3m2!1sfr!2sfr!4v1788984115162!5m2!1sfr!2sfr",
        "category": "child"
     },
     {
@@ -334,9 +334,9 @@
        "adresse": "Hospice Civil, 3 Quai des Célestins",
        "codePostal": "69002",
        "ville": "Lyon", 
-       "mail": "???",
-       "lienAPHP": "???",
-       "iframeGoogleMaps": "???",
+       "mail": "",
+       "lienAPHP": "https://www.chu-lyon.fr/",
+       "iframeGoogleMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5151657357283!2d4.829370975494397!3d45.76086496457442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c1c112ff4ee9%3A0xfdd5f6965d1a549e!2sHospices%20Civils%20de%20Lyon%20-%20HCL!5e0!3m2!1sfr!2sfr!4v1788984186706!5m2!1sfr!2sfr",
        "category": "child"
     },
     {
