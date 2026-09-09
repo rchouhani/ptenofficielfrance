@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_NEW_DOCTOR);
 
 export async function POST (req: Request) {
     try {
-   const { userFirstname, userLastname, doctorFirstname, doctorLastname, specialite, cityConsultation, category, message } = await req.json();
+   const { userFirstname, userLastname, doctorFirstname, doctorLastname, specialite, cityConsultation, category } = await req.json();
 
    if (!doctorFirstname || !doctorLastname || !specialite || !cityConsultation) {
     return Response.json({ error: `il manque l'un de ces champs le ${doctorFirstname}, le ${doctorLastname}, la ${specialite} ou la ${cityConsultation} de consultation `}, { status: 400 })
@@ -20,7 +20,6 @@ export async function POST (req: Request) {
     Sa spécialité : ${specialite}
     Son lieu de consultation : ${cityConsultation}
     Il s'occupe principalement des  : ${category}
-    Un petit mot : ${message}
     `.trim(),
    })
 
