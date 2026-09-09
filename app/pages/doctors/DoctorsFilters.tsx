@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import DoctorCard from "./DoctorCard";
 import Modal from "@/app/component/Modal";
 import { resolveSpecialtyQuery, slugify, type Doctor } from "@/app/lib/doctors";
+import Pagination from "./Pagination";
 
 const DoctorsMap = dynamic(() => import("./DoctorsMap"), {
   ssr: false,
@@ -13,6 +14,7 @@ const DoctorsMap = dynamic(() => import("./DoctorsMap"), {
 });
 
 const SELECTED_DOCTOR_TITLE_ID = "selected-doctor-title";
+const ITEMS_PER_PAGE = 6;
 
 type Option = { value: string; label: string };
 
@@ -36,6 +38,7 @@ export default function DoctorsFilters({
   const [categories, setCategories] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [specialties, setSpecialties] = useState<string[]>([]);
+  const [page, setPage] = useState(1);
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
 
   useEffect(() => {
@@ -49,6 +52,9 @@ export default function DoctorsFilters({
 
     const villeParam = searchParams.get("ville");
     if (villeParam) setCities(villeParam.split(","));
+
+    const pageParam = searchParams.get("page");
+    if (pageParam) setPage(Math.max(1, Number(pageParam) || 1))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -57,9 +63,10 @@ export default function DoctorsFilters({
     if (categories.length) params.set("categorie", categories.join(","));
     if (cities.length) params.set("ville", cities.join(","));
     if (specialties.length) params.set("specialite", specialties.join(","));
+    if (page > 1) params.set("page", String(page))
     const query = params.toString();
     router.replace(query ? `?${query}` : "?", { scroll: false });
-  }, [categories, cities, specialties, router]);
+  }, [categories, cities, specialties ,page , router]);
 
   const filteredDoctors = useMemo(() => {
     return doctors.filter((doctor) => {
@@ -70,8 +77,20 @@ export default function DoctorsFilters({
     });
   }, [doctors, categories, cities, specialties]);
 
+  const totalPages = Math.max(1, Math.ceil(filteredDoctors.length / ITEMS_PER_PAGE));
+
+  const pageDoctors = useMemo(
+    () => filteredDoctors.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE),
+    [filteredDoctors, page]
+  );
+
+  useEffect(() => {
+    if (page > totalPages) setPage(totalPages);
+  }, [page, totalPages])
+
   function toggle(value: string, list: string[], setList: (next: string[]) => void) {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+    setPage(1);
   }
 
   const hasActiveFilters = categories.length > 0 || cities.length > 0 || specialties.length > 0;
@@ -143,6 +162,7 @@ export default function DoctorsFilters({
               setCategories([]);
               setCities([]);
               setSpecialties([]);
+              setPage(1);
             }}
             className="text-sm font-semibold text-accent-text underline decoration-accent underline-offset-2"
           >
@@ -163,13 +183,16 @@ export default function DoctorsFilters({
             Aucun médecin ne correspond à ces critères. Essayez de retirer un filtre.
           </p>
         ) : (
+        <>
           <ul className="space-y-6">
-            {filteredDoctors.map((doctor, index) => (
+            {pageDoctors.map((doctor, index) => (
               <li key={`${doctor.nom}-${doctor.prenom}-${index}`}>
                 <DoctorCard doctor={doctor} />
               </li>
             ))}
           </ul>
+          <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
+        </>
         )}
       </div>
 
