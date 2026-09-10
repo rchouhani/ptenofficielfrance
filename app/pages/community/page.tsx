@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import ExternalLink from "@/app/component/article/ExternalLink";
-import CommunityMap from "./CommunityMap";
 import { getCommunityMembersByCity } from "@/app/lib/community";
 
 export const metadata: Metadata = {
@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description:
     "Découvrez la communauté PTEN Officiel France à travers la France, le Québec et la Belgique, et rejoignez le groupe privé Facebook.",
 };
+
+const CommunityMap = dynamic(() => import("./CommunityMap"), {
+  loading: () => <div className="mb-8 h-[420px] animate-pulse rounded border border-ink/10 bg-ink/5" />,
+});
 
 export default function CommunityPage() {
   const cities = getCommunityMembersByCity();
