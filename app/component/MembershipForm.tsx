@@ -57,7 +57,7 @@ export default function MembershipForm() {
     <span className="mb-15 mt-5">
       <p>Devenir simple adhérent pour faire vivre l'association ou contribuer à son évolution.</p>
       <span>Vous avez le choix : 
-        <li>Participer à des salons, foires, journée de sassociations afin de faire connaître la pathologie et les bonnes pratiques, choses à surveiller</li>
+        <li>Participer à des salons, foires, journée des associations afin de faire connaître la pathologie et les bonnes pratiques, choses à surveiller</li>
         <li>Promouvoir l'association sur les réseaux afin de diffuser le message, être visible, recruter</li>
         <li>Trouver des partenaires pour des évènements sportifs, caritatifs, médicaux</li>
       </span>
@@ -222,7 +222,7 @@ export default function MembershipForm() {
       <button
         type="submit"
         disabled={loading}
-        className="rounded-sm bg-ink px-4 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
+        className="rounded-sm bg-ink px-4 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60 mb-12"
       >
         {loading ? "Demande d'adhésion en cours..." : "Envoyer ma demande d'adhésion →"}
       </button>
