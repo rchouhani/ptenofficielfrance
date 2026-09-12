@@ -18,9 +18,9 @@ export default function AudienceTabs() {
   const [active, setActive] = useState<AudienceKey>("patients");
 
   const ctaPrimaryClassName =
-    "inline-block rounded-sm bg-ink px-4 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent";
+    "inline-block rounded-sm border border-ink/15 px-4 py-3 text-sm font-semibold text-paper transition-colors hover:bg-accent";
   const ctaSecondaryClassName =
-    "inline-block rounded-sm border border-ink/15 px-4 py-3 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent-text";
+    "inline-block rounded-sm border border-ink/15 px-4 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-accent-text";
 
   return (
     <div>
@@ -42,8 +42,8 @@ export default function AudienceTabs() {
               onClick={() => setActive(audience.key)}
               className={
                 isActive
-                  ? "border-b-2 border-accent px-4 py-3 text-sm font-semibold text-accent-text"
-                  : "border-b-2 border-transparent px-4 py-3 text-sm font-medium text-ink/70 hover:text-ink"
+                  ? "border-b-2 cursor-pointer border-accent px-4 py-3 text-sm font-semibold text-accent-text"
+                  : "border-b-2 cursor-pointer border-transparent px-4 py-3 text-sm font-medium text-ink/70 hover:text-ink"
               }
             >
               {audience.label}
