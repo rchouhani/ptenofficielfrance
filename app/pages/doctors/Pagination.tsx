@@ -17,7 +17,7 @@ export default function Pagination({
         type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="rounded border border-ink/15 px-3 py-1.5 text-sm text-ink disabled:cursor-not-allowed disabled:opacity-40"
+        className="rounded border border-ink/15 px-3 py-1.5 text-sm text-ink disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
       >
         <span aria-hidden="true">←</span>
         <span className="sr-only">Page précédente</span>
@@ -32,8 +32,8 @@ export default function Pagination({
               aria-current={pageNumber === currentPage ? "page" : undefined}
               className={
                 pageNumber === currentPage
-                  ? "rounded bg-ink px-3 py-1.5 text-sm font-semibold text-paper"
-                  : "rounded px-3 py-1.5 text-sm text-ink hover:bg-ink/5"
+                  ? "rounded bg-ink px-3 py-1.5 text-sm font-semibold text-paper cursor-pointer"
+                  : "rounded px-3 py-1.5 text-sm text-ink hover:bg-ink/5 cursor-pointer"
               }
             >
               {pageNumber}
@@ -46,7 +46,7 @@ export default function Pagination({
         type="button"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="rounded border border-ink/15 px-3 py-1.5 text-sm text-ink disabled:cursor-not-allowed disabled:opacity-40"
+        className="rounded border border-ink/15 px-3 py-1.5 text-sm text-ink disabled:cursor-not-allowed disabled:opacity-40 cursor-pointer"
       >
         <span aria-hidden="true">→</span>
         <span className="sr-only">Page suivante</span>
