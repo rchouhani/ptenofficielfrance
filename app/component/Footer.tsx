@@ -3,7 +3,6 @@ import Link from "next/link";
 const FOOTERLINKS = [
   { title: "Contactez-nous", path: "/pages/contactUs" },
   { title: "Mentions légales", path: "/pages/legalMentions" },
-  { title: "Politique de confidentialité", path: "/pages/privacyPolicy" },
   { title: "RGPD", path: "/pages/RGPD" },
   { title: "A propos de nous", path: "/pages/aboutUs" }
 ];
