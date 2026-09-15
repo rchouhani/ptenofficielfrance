@@ -53,15 +53,60 @@ export default function MembershipForm() {
   return (
      <>
 <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
-  <h1 className="text-center text-4xl mt-15">Devenir Adhérent</h1>
-    <span className="mb-15 mt-5">
-      <p>Devenir simple adhérent pour faire vivre l'association ou contribuer à son évolution.</p>
-      <span>Vous avez le choix : 
-        <li>Participer à des salons, foires, journée des associations afin de faire connaître la pathologie et les bonnes pratiques, choses à surveiller</li>
-        <li>Promouvoir l'association sur les réseaux afin de diffuser le message, être visible, recruter</li>
-        <li>Trouver des partenaires pour des évènements sportifs, caritatifs, médicaux</li>
-      </span>
-    </span>
+  <h1 className="mt-15 text-center text-4xl">Devenir Adhérent</h1>
+
+  <div className="mb-15 mt-5 flex flex-col gap-4">
+    <p>
+      Devenir simple adhérent pour faire vivre l'association ou contribuer à son évolution. La pathologie touche binen évidemment, le patient, mais aussi les proches autour de lui, c'est pour cela que les adhérents ne se limitent pas qu'au patient mais à tout leur entourage et personne désireuse d'aider à faire connaître ce syndrome encore trop eu connu.
+    </p>
+
+      <p className="stripe-band">
+        LE ZEBRE EST L'EMBLEME DES MALADIES RARES, SOYONS UNIS COMME SES RAYURES
+      </p>
+
+    <p>Vous avez le choix :</p>
+
+    <p>
+      <span className="text-accent-text font-black textDecoration: underline">Participer</span> à des salons, foires, journée des associations afin de faire connaître la
+      pathologie et les bonnes pratiques de surveillance en général, d'auto-palpations par
+      exemple.
+    </p>
+
+    <p>
+      <span className="text-accent-text font-black textDecoration: underline">Promouvoir</span> l'association sur les réseaux afin de diffuser le message, être visible, ce
+      qui nous permettra de recruter des adhérents afin de faire entendre notre voix.
+    </p>
+
+    <p>Trouver des partenaires pour des évènements :</p>
+
+    <p>
+      <li>
+        <span className="text-accent-text font-black textDecoration: underline">Sportifs</span>, tels que des courses comme la "Color Run" organisée un peu partout en France,
+        ou encore lors des journées internationales de l'UNESCO, comme les maladies rares, la
+        journée contre le Cancer ou tout autre journée.
+      </li>
+    </p>
+
+    <p>
+      <li>
+        <span className="text-accent-text font-black textDecoration: underline">Caritatifs</span>, tels que Brocante Solidaire, Tombola de Noël, Course solidaire, Marche
+        caritative, Randonnée solidaire, Course cycliste solidaire, Chasse aux œufs de Pâques ...
+    </li>
+    </p>
+
+    <p>
+      <li>
+        <span className="text-accent-text font-black textDecoration: underline">Médicaux</span>, distribution de plaquettes dans les maisons des patients des hôpitaux.
+      </li>
+    </p>
+
+    <p>
+      <li>
+        <span className="text-accent-text font-black textDecoration: underline">Cagnotte en ligne</span> type Kickstarter, GoFundMe, ou le même format avec des objectifs
+        clairs (à définir).
+      </li>
+    </p>
+  </div>
 </div>
     <form
       className="mx-auto flex w-full max-w-3xl flex-col gap-5"
@@ -120,7 +165,6 @@ export default function MembershipForm() {
             id={fieldId("doctor-lastname")}
             className={inputClassName}
             type="text"
-            placeholder="Le nom du docteur"
             value={form.userLastname}
             onChange={updateField("userLastname")}
             required
